@@ -3,10 +3,10 @@
 <?php
 $type = $_GET["type"];
 
-$charts = new Charts($type);
-$result = $charts->render();
+$statistics = new Statistics($type);
+$result = $statistics->render();
 
-$pageName = $charts->getChartsName();
+$pageName = $statistics->getStatisticsName();
 ?>
 
 

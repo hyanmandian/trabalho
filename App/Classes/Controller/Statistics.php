@@ -1,6 +1,6 @@
 <?php
 
-class Charts {
+class Statistics {
 
     private $interviewees;
     private $type;
@@ -32,7 +32,7 @@ class Charts {
         return $this->$method();
     }
 
-    public function getChartsName() {
+    public function getStatisticsName() {
         switch ($this->type) {
             case "age":
                 return "idade";
