@@ -6,7 +6,7 @@
                 <h2 class="modal-title text-center" id="myModalLabel">Perguntas</h2>
             </div>
             <div class="modal-body">
-                <form action="index" method="post">
+                <form action="index.php" method="post">
                     <div class="form-group">
                         <h3>Idade</h3>
                         <div>

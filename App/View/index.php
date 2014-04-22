@@ -2,9 +2,9 @@
 
 <?php
 $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-$participants = new Participants();
-$result = $participants->getElectionPoll($page);
-$participants = $result["participants"];
+$interviewees = new Interviewees();
+$result = $interviewees->getPoll($page);
+$interviewees = $result["interviewees"];
 $quantityOfPages = $result["quantity"];
 
 $error = NULL;
@@ -49,13 +49,13 @@ if (!empty($_POST)) {
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($participants as $participant): ?>
+            <?php foreach ($interviewees as $interviewee): ?>
                 <tr class="alert-info">
-                    <td><?php echo $participant[0]; ?></td>
-                    <td><?php echo $participant[1]; ?></td>
-                    <td><?php echo $participant[2]; ?></td>
-                    <td><?php echo $participant[3]; ?></td>
-                    <td><?php echo $participant[4]; ?></td>
+                    <td><?php echo $interviewee[0]; ?></td>
+                    <td><?php echo $interviewee[1]; ?></td>
+                    <td><?php echo $interviewee[2]; ?></td>
+                    <td><?php echo $interviewee[3]; ?></td>
+                    <td><?php echo $interviewee[4]; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

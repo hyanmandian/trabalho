@@ -7,9 +7,9 @@ class Csv {
         $this->file = $this->_open("r");
     }
     
-    private function _open($for){
+    private function _open($mode){
         $fileName = DOCROOT . "../uploads/election_poll.csv";
-        return fopen($fileName, $for);
+        return fopen($fileName, $mode);
     }
     
     private function _age($age) {
@@ -25,8 +25,8 @@ class Csv {
         }
     }
 
-    private function _level_of_education($level) {
-        switch ($level) {
+    private function _schooling($schooling) {
+        switch ($schooling) {
             case 1:
                 return "Ensino fundamental incompleto";
             case 2:
@@ -38,7 +38,7 @@ class Csv {
         }
     }
 
-    private function _family_income($income) {
+    private function _income($income) {
         switch ($income) {
             case 1:
                 return "Abaixo de R$ 1.000";
@@ -77,8 +77,8 @@ class Csv {
     
     private function _filterFields($participant) {
         $participant[0] = $this->_age($participant[0]);
-        $participant[1] = $this->_level_of_education($participant[1]);
-        $participant[2] = $this->_family_income($participant[2]);
+        $participant[1] = $this->_schooling($participant[1]);
+        $participant[2] = $this->_income($participant[2]);
         $participant[3] = $this->_sex($participant[3]);
         $participant[4] = $this->_candidate($participant[4]);
         
@@ -90,11 +90,11 @@ class Csv {
         fputcsv($file, $values, ";");
     }
     
-    public function getAll() {
+    public function getAll($filtrated = TRUE) {
         $participants = array();
 
         while (($participant = fgetcsv($this->file, 0, ";")) !== FALSE) {
-            $participants[] = $this->_filterFields($participant);
+            $participants[] = $filtrated ? $this->_filterFields($participant) : $participant;
         }
 
         return $participants;

@@ -29,19 +29,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index">Trabalho Grau A</a>
+                    <a class="navbar-brand" href="index.php">Trabalho Grau A</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="<?php echo !isset($_GET["type"]) ? "active" : ""?>"><a href="index">Listagem de participantes</a></li>
+                        <li class="<?php echo !isset($_GET["type"]) ? "active" : ""?>"><a href="index.php">Listagem de participantes</a></li>
                         <li class="dropdown <?php echo isset($_GET["type"]) ? "active" : ""?>"">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estatísticas<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-header">Intenção de voto por</li>
-                                <li><a href="charts?type=idade">Idade</a></li>
-                                <li><a href="charts?type=nivel+de+escolaridade">Nivel de escolaridade</a></li>
-                                <li><a href="charts?type=renda">Renda</a></li>
-                                <li><a href="charts?type=sexo">Sexo</a></li>
+                                <li><a href="charts.php?type=age">Idade</a></li>
+                                <li><a href="charts.php?type=schooling">Nivel de escolaridade</a></li>
+                                <li><a href="charts.php?type=income">Renda</a></li>
+                                <li><a href="charts.php?type=sex">Sexo</a></li>
                             </ul>
                         </li>
                     </ul>
