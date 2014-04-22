@@ -17,7 +17,6 @@
         <![endif]-->
 
         <link href="../../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../public/vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="../../public/css/style.css" rel="stylesheet">
     </head>
     <body>
@@ -33,15 +32,15 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="<?php echo !isset($_GET["type"]) ? "active" : ""?>"><a href="index.php">Listagem de participantes</a></li>
-                        <li class="dropdown <?php echo isset($_GET["type"]) ? "active" : ""?>"">
+                        <li class="<?php echo!isset($_GET["type"]) ? "active" : "" ?>"><a href="index.php">Listagem de participantes</a></li>
+                        <li class="dropdown <?php echo isset($_GET["type"]) ? "active" : "" ?>"">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estatísticas<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-header">Intenção de voto por</li>
-                                <li><a href="charts.php?type=age">Idade</a></li>
-                                <li><a href="charts.php?type=schooling">Nivel de escolaridade</a></li>
-                                <li><a href="charts.php?type=income">Renda</a></li>
-                                <li><a href="charts.php?type=sex">Sexo</a></li>
+                                <li <?php echo isset($_GET["type"]) && $_GET["type"] == "age" ? "class='disabled'" : "" ?>><a href="charts.php?type=age">Idade</a></li>
+                                <li <?php echo isset($_GET["type"]) && $_GET["type"] == "schooling" ? "class='disabled'" : "" ?>><a href="charts.php?type=schooling">Nivel de escolaridade</a></li>
+                                <li <?php echo isset($_GET["type"]) && $_GET["type"] == "income" ? "class='disabled'" : "" ?>><a href="charts.php?type=income">Renda</a></li>
+                                <li <?php echo isset($_GET["type"]) && $_GET["type"] == "sex" ? "class='disabled'" : "" ?>><a href="charts.php?type=sex">Sexo</a></li>
                             </ul>
                         </li>
                     </ul>

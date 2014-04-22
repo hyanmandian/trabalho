@@ -2,6 +2,7 @@
 
 <?php
 $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+
 $interviewees = new Interviewees();
 $result = $interviewees->getPoll($page);
 $interviewees = $result["interviewees"];
@@ -38,7 +39,7 @@ if (!empty($_POST)) {
 </div
 >
 <div class="row">
-    <table class="table table-striped table-responsive">
+    <table class="table table-responsive">
         <thead>
             <tr>
                 <th>Idade</th>
@@ -50,7 +51,7 @@ if (!empty($_POST)) {
         </thead>
         <tbody>
             <?php foreach ($interviewees as $interviewee): ?>
-                <tr class="alert-info">
+                <tr>
                     <td><?php echo $interviewee[0]; ?></td>
                     <td><?php echo $interviewee[1]; ?></td>
                     <td><?php echo $interviewee[2]; ?></td>
