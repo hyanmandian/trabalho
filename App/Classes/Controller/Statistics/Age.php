@@ -7,6 +7,6 @@ class Age extends Statistics {
     }
     
     public function render(){
-        echo "Age";
+        return $this->generateStatistic(0);
     }
 }

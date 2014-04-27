@@ -13,6 +13,21 @@ abstract class Statistics {
         return $this->interviewees;
     }
     
+    protected function generateStatistic($type){
+          
+        $statistic = array();
+        
+        foreach($this->getInterviewees() as $interview){
+            if (isset($statistic[$interview[4]][$interview[$type]])) {
+                $statistic[$interview[4]][$interview[$type]] += 1;
+            } else {
+                $statistic[$interview[4]][$interview[$type]] = 1;
+            }
+        }
+        
+        return $statistic;
+    }
+    
     abstract function getName();
 
     abstract function render();

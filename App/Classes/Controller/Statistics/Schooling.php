@@ -7,6 +7,6 @@ class Schooling extends Statistics {
     }
     
     public function render(){
-        echo "Schooling";
+        return $this->generateStatistic(2);
     }
 }

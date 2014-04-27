@@ -7,6 +7,6 @@ class Income extends Statistics {
     }
     
     public function render(){
-        echo "Income";
+        return $this->generateStatistic(1);
     }
 }
