@@ -1,9 +1,14 @@
 <?php include './inc/header.php'; ?>
 
 <?php
+$type = Helpers::converterIdToClassName($_GET["type"]);
 
-$statistics = FactoryStatistics::createStatistic($_GET["type"]);
-$name = $statistics->getName();
+if($type){  
+    $statistics = FactoryStatistics::createStatistic($type);
+    $name = $statistics->getName();
+}else{
+    header("Location: index.php");
+}
 
 ?>
 

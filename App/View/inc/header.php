@@ -37,10 +37,10 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estatísticas<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-header">Intenção de voto por</li>
-                                <li <?php echo isset($_GET["type"]) && $_GET["type"] == "age" ? "class='disabled'" : "" ?>><a href="statistics.php?type=1">Idade</a></li>
-                                <li <?php echo isset($_GET["type"]) && $_GET["type"] == "schooling" ? "class='disabled'" : "" ?>><a href="statistics.php?type=2">Nivel de escolaridade</a></li>
-                                <li <?php echo isset($_GET["type"]) && $_GET["type"] == "income" ? "class='disabled'" : "" ?>><a href="statistics.php?type=3">Renda</a></li>
-                                <li <?php echo isset($_GET["type"]) && $_GET["type"] == "sex" ? "class='disabled'" : "" ?>><a href="statistics.php?type=4">Sexo</a></li>
+                                <li class="<?php echo Helpers::isCurrent(1); ?>"><a href="statistics.php?type=1">Idade</a></li>
+                                <li class="<?php echo Helpers::isCurrent(2); ?>"><a href="statistics.php?type=2">Nivel de escolaridade</a></li>
+                                <li class="<?php echo Helpers::isCurrent(3); ?>"><a href="statistics.php?type=3">Renda</a></li>
+                                <li class="<?php echo Helpers::isCurrent(4); ?>"><a href="statistics.php?type=4">Sexo</a></li>
                             </ul>
                         </li>
                     </ul>

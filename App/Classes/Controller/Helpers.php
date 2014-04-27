@@ -1,8 +1,8 @@
 <?php
 
-class Converter {
+class Helpers {
         
-    static function idToName($id){
+    static function converterIdToClassName($id){
         switch ($id) {
             case 1:
                 return "Age";
@@ -15,5 +15,9 @@ class Converter {
             default :
                 return FALSE;
         }
+    }
+    
+    static function isCurrent($id){
+        return $_GET["type"] == $id ? "disabled" : "";
     }
 }
