@@ -1,17 +1,17 @@
 <?php include './inc/header.php'; ?>
 
 <?php
-$type = $_GET["type"];
 
-$statistics = new Statistics($type);
-$result = $statistics->render();
+$statistics = Statistics::factory($_GET["type"]);
+$name = $statistics->getName();
 
-$pageName = $statistics->getStatisticsName();
 ?>
 
-
 <div class="jumbotron">
-    <h1 class="text-center">Intenções de voto por <?php echo $pageName?></h1>
+    <h1 class="text-center">Intenções de voto por <?php echo $name; ?></h1>
+    
+    <?php echo $statistics->render(); ?>
+    
 </div>
 <div class="row">
     

@@ -8,6 +8,7 @@ define("DOCROOT", realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR);
 function __autoload($class_name) {
     $directories = array(
         DOCROOT . "Classes/Controller/",
+        DOCROOT . "Classes/Controller/Statistics/",
         DOCROOT . "Classes/Model/"
     );
 
