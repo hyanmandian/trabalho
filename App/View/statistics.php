@@ -2,7 +2,7 @@
 
 <?php
 
-$statistics = Statistics::factory($_GET["type"]);
+$statistics = FactoryStatistics::createStatistic($_GET["type"]);
 $name = $statistics->getName();
 
 ?>
