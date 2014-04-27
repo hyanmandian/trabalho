@@ -9,6 +9,10 @@ abstract class Statistics {
         $this->interviewees = $this->interviewees->getAll(FALSE);
     }
     
+    protected function getInterviewees(){
+        return $this->interviewees;
+    }
+    
     abstract function getName();
 
     abstract function render();

@@ -1,10 +1,15 @@
 <?php
 
 class FactoryStatistics {
-        
+    
     static function createStatistic($type){
-        $class = ucfirst($type);
+        if(Converter::idToName($type)){
+            $class = Converter::idToName($type);
+            
+            return new $class;
+        }  else {
+            header("Location: index.php");
+        }
         
-        return new $class;
     }
 }
