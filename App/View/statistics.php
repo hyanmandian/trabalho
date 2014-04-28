@@ -16,6 +16,25 @@ if ($type) {
 </div>
 
 <div class="row">
-    <?php echo "<pre>"; print_r($statistics->render()); ?>
+	<table class="table table-responsive">
+		<thead>
+			<tr>
+				<th>Candidato</th>
+				<?php foreach(Helpers::getFields($_GET["type"]) as $field):?>
+					<th><?php echo $field; ?></th>
+				<?php endforeach;?>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($statistics->render() as $key => $values):?>
+				<tr>
+					<td><?php echo $key; ?></td>
+					<?php foreach($values as $value):?>
+						<td><?php echo $value ?></td>
+					<?php endforeach;?>
+				</tr>
+			<?php endforeach;?>
+		</tbody>
+	</table>
 </div>
 <?php include './inc/footer.php'; ?>

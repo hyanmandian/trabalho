@@ -13,15 +13,31 @@ abstract class Statistics {
         return $this->interviewees;
     }
     
-    protected function generateStatistic($type){
+	private function _filterByType($type, $field){
+		switch ($type){
+			case 0:
+				return Helpers::age($field);
+			case 1:
+				return Helpers::schooling($field);
+			case 2:
+				return Helpers::income($field);
+			case 3:
+				return Helpers::sex($field);
+		}
+	}
+
+	protected function generateStatistic($type){
           
         $statistic = array();
         
         foreach($this->getInterviewees() as $interview){
-            if (isset($statistic[$interview[4]][$interview[$type]])) {
-                $statistic[$interview[4]][$interview[$type]] += 1;
+			$cadidate = Helpers::candidate($interview[4]);
+			$field = $this->_filterByType($type, $interview[$type]);
+			
+            if (isset($statistic[$cadidate][$field])) {
+                $statistic[$cadidate][$field] += 1;
             } else {
-                $statistic[$interview[4]][$interview[$type]] = 1;
+                $statistic[$cadidate][$field] = 1;
             }
         }
         

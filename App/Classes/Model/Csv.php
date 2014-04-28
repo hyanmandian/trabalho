@@ -12,75 +12,12 @@ class Csv {
         return fopen($fileName, $mode);
     }
     
-    private function _age($age) {
-        switch ($age) {
-            case 1:
-                return "De 16 a 30 anos";
-            case 2:
-                return "De 31 a 45 anos";
-            case 3:
-                return "De 46 a 60 anos";
-            case 4:
-                return "Acima de 60 anos";
-        }
-    }
-
-    private function _schooling($schooling) {
-        switch ($schooling) {
-            case 1:
-                return "Ensino fundamental incompleto";
-            case 2:
-                return "Ensino fundamental completo";
-            case 3:
-                return "Ensino médio completo";
-            case 4:
-                return "Ensino superior completo";
-        }
-    }
-
-    private function _income($income) {
-        switch ($income) {
-            case 1:
-                return "Abaixo de R$ 1.000";
-            case 2:
-                return "De R$ 1.000 a R$ 3.000";
-            case 3:
-                return "De R$ 3.000 a R$ 5.000";
-            case 4:
-                return "De R$ 5.000 a R$ 7.000";
-            case 5:
-                return "Acima de R$ 7.000";
-        }
-    }
-
-    private function _candidate($candidate) {
-        switch ($candidate) {
-            case 1:
-                return "Barack Obama";
-            case 2:
-                return "Dilma Rousseff";
-            case 3:
-                return "Kim Jong-un";
-            case 4:
-                return "Vladimir Putin";
-        }
-    }
-    
-    private function _sex($sex) {
-        switch ($sex) {
-            case 1:
-                return "Masculino";
-            case 2:
-                return "Feminino";
-        }
-    }
-    
     private function _filterFields($participant) {
-        $participant[0] = $this->_age($participant[0]);
-        $participant[1] = $this->_schooling($participant[1]);
-        $participant[2] = $this->_income($participant[2]);
-        $participant[3] = $this->_sex($participant[3]);
-        $participant[4] = $this->_candidate($participant[4]);
+        $participant[0] = Helpers::age($participant[0]);
+        $participant[1] = Helpers::schooling($participant[1]);
+        $participant[2] = Helpers::income($participant[2]);
+        $participant[3] = Helpers::sex($participant[3]);
+        $participant[4] = Helpers::candidate($participant[4]);
         
         return $participant;
     }
