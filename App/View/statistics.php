@@ -1,19 +1,21 @@
 <?php include './inc/header.php'; ?>
 
 <?php
-$type = $_GET["type"];
+$type = Helpers::converterIdToClassName($_GET["type"]);
 
-$statistics = new Statistics($type);
-$result = $statistics->render();
-
-$pageName = $statistics->getStatisticsName();
+if ($type) {
+    $statistics = FactoryStatistics::createStatistic($type);
+    $name = $statistics->getName();
+} else {
+    header("Location: index.php");
+}
 ?>
 
-
 <div class="jumbotron">
-    <h1 class="text-center">Intenções de voto por <?php echo $pageName?></h1>
+    <h1 class="text-center">Intenções de voto por <?php echo $name; ?></h1>
 </div>
+
 <div class="row">
-    
+    <?php echo "<pre>"; print_r($statistics->render()); ?>
 </div>
 <?php include './inc/footer.php'; ?>
