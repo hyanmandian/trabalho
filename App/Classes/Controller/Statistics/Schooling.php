@@ -7,6 +7,6 @@ class Schooling extends Statistics {
     }
     
     public function render(){
-        return $this->generateStatistic(2);
+        return $this->generateStatistic(1);
     }
 }

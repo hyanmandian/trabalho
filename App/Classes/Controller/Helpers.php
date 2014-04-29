@@ -86,5 +86,14 @@ class Helpers {
 	static function candidate($candidate) {
 		return self::$_fields[4][$candidate];
 	}
-
+	
+	static function getLength($type){
+		if($type == "Income"){
+			return $length = 5;
+		}elseif($type == "Sex"){
+			return $length = 2;
+		}else{
+			return $length = 4;
+		}
+	}
 }

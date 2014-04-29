@@ -39,6 +39,7 @@ if (!empty($_POST)) {
 </div
 >
 <div class="row">
+	<?php if(!empty($interviewees)):?>
     <table class="table table-responsive">
         <thead>
             <tr>
@@ -69,6 +70,9 @@ if (!empty($_POST)) {
             <li class="next"><a href="?page=<?php echo $page + 1; ?>">Próximo &rarr;</a></li>
         <?php endif; ?>
     </ul>
+	<?php else: ?>
+		<p class="text-center alert alert-info">Não existem dados para serem exibidos.</p>
+	<?php endif; ?>
 </div>
 
 <?php include './modal.php'; ?>

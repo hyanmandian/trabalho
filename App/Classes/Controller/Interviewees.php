@@ -13,7 +13,12 @@ class Interviewees {
     public function getPoll($page){
         $interviewees = $this->poll->getAll();
         $interviewees = array_chunk($interviewees, self::PERPAGE);
-        return array("interviewees" => $interviewees[$page - 1], "quantity" => count($interviewees));
+		
+		if(!empty($interviewees)){
+			return array("interviewees" => $interviewees[$page - 1], "quantity" => count($interviewees));
+		}else{
+			return NULL;
+		}
     }
 
 }

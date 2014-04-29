@@ -29,18 +29,19 @@ abstract class Statistics {
 	protected function generateStatistic($type){
           
         $statistic = array();
-        
+		
         foreach($this->getInterviewees() as $interview){
 			$cadidate = Helpers::candidate($interview[4]);
+			
 			$field = $this->_filterByType($type, $interview[$type]);
 			
-            if (isset($statistic[$cadidate][$field])) {
-                $statistic[$cadidate][$field] += 1;
+            if (isset($statistic[$cadidate][$interview[$type]])) {
+                $statistic[$cadidate][$interview[$type]] += 1;
             } else {
-                $statistic[$cadidate][$field] = 1;
+                $statistic[$cadidate][$interview[$type]] = 1;
             }
         }
-        
+		
         return $statistic;
     }
     
