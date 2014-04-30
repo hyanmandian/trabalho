@@ -1,14 +1,9 @@
 <?php include './inc/header.php'; ?>
 
 <?php
-$type = Helpers::converterIdToClassName($_GET["type"]);
 
-if ($type) {
-    $statistics = FactoryStatistics::createStatistic($type);
-    $name = $statistics->getName();
-} else {
-    header("Location: index.php");
-}
+$statistics = FactoryStatistics::createStatistic($_GET["type"]);
+$name = $statistics->getName();
 
 ?>
 
@@ -32,7 +27,7 @@ if ($type) {
 			<?php foreach($statistics->render() as $key => $values):?>
 				<tr>
 					<td><?php echo $key; ?></td>
-					<?php for($i = 1; $i <= Helpers::getLength($type) ; $i++):?>
+					<?php for($i = 1; $i <= Helpers::getLength($_GET["type"]) ; $i++):?>
 						<td><?php echo (isset($values[$i])) ? $values[$i] : 0; ?></td>
 					<?php endfor;?>
 				</tr>
