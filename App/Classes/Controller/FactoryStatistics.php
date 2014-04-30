@@ -9,7 +9,7 @@ class FactoryStatistics {
 			case 2:
 				return new Schooling;
 			case 3:
-				return new Income();
+				return new Income;
 			case 4:
 				return new Sex;
 			default :
